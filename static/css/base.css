@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url('/media/hero-image.png') no-repeat center center fixed;
+    background-image: linear-gradient(to bottom right, rgb(162, 146, 167), rgb(130, 163, 163));
     background-size: cover;
     height: calc(100vh - 164px);
 }
