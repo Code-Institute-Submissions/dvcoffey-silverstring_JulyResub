@@ -25,6 +25,10 @@ body {
     width: fit-content;
 }
 
+.nav-link{
+    color: white;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
