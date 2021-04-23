@@ -10,16 +10,28 @@ def view_cart(request):
 
 
 def add_to_cart(request, item_id):
-    """Add a selected quantity of a product to the shopping cart"""
+    """ Add to the shopping cart """
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
+    gauge = None
+    if 'string_gauge' in request.POST:
+        gauge = request.POST['string_gauge']
     cart = request.session.get('cart', {})
 
-    if item_id in list(cart.keys()):
-        cart[item_id] += quantity
+    if gauge:
+        if item_id in list(cart.keys()):
+            if gauge in cart[item_id]['items_by_cart'].keys():
+                cart[item_id]['items_by_gauge'][gauge] += quantity
+            else:
+                cart[item_id]['items_by_gauge'][gauge] = quantity
+        else:
+            cart[item_id] = {'items_by_gauge': {gauge: quantity}}
     else:
-        cart[item_id] = quantity
+        if item_id in list(cart.keys()):
+            cart[item_id] += quantity
+        else:
+            cart[item_id] = quantity
 
     request.session['cart'] = cart
     return redirect(redirect_url)
