@@ -61,7 +61,7 @@ def adjust_cart(request, item_id):
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
-    
+
 
 def remove_from_cart(request, item_id):
     """Remove the item from the cart"""
@@ -84,4 +84,3 @@ def remove_from_cart(request, item_id):
 
     except Exception as e:
         return HttpResponse(status=500)
-    
