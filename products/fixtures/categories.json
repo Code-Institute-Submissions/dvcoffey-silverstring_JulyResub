@@ -1,0 +1,74 @@
+[
+    {
+        "pk":1,
+        "model":"products.category",
+        "fields":{
+            "name":"electric-guitars",
+            "friendly_name":"Electric guitars"
+        }
+    },
+    {
+        "pk":2,
+        "model":"products.category",
+        "fields":{
+            "name":"electric-guitar-strings",
+            "friendly_name":"Electric guitar strings"
+        }
+    },
+    {
+        "pk":3,
+        "model":"products.category",
+        "fields":{
+            "name":"electric-guitar-accessories",
+            "friendly_name":"Electric guitar accessories"
+        }
+    },
+    {
+        "pk":4,
+        "model":"products.category",
+        "fields":{
+            "name":"acoustic-guitars",
+            "friendly_name":"Acoustic Guitars"
+        }
+    },
+    {
+        "pk":5,
+        "model":"products.category",
+        "fields":{
+            "name":"acoustic-guitar-strings",
+            "friendly_name":"Acoustic guitar strings"
+        }
+    },
+    {
+        "pk":6,
+        "model":"products.category",
+        "fields":{
+            "name":"acoustic-guitar-accessories",
+            "friendly_name":"Acoustic guitar accessories"
+        }
+    },
+    {
+        "pk":7,
+        "model":"products.category",
+        "fields":{
+            "name":"bass-guitars",
+            "friendly_name":"Bass guitars"
+        }
+    },
+    {
+      "pk":8,
+      "model":"products.category",
+      "fields":{
+         "name":"bass-guitar-strings",
+         "friendly_name":"Bass guitar strings"
+      }
+    },
+    {
+        "pk":9,
+        "model":"products.category",
+        "fields":{
+            "name":"bass-guitar-accessories",
+            "friendly_name":"Bass guitar accessories"
+        }
+    }
+]
