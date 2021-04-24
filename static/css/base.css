@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-image: linear-gradient(to bottom right, rgb(162, 146, 167), rgb(130, 163, 163));
+    background-image: linear-gradient(to bottom right, rgb(210, 191, 216), rgb(176, 219, 219));
     background-size: cover;
     height: calc(100vh - 164px);
 }
