@@ -6,4 +6,9 @@ from .models import Showcase
 
 def showcase(request):
 
-    return render(request, 'showcase/showcase.html')
+    showcases = Showcase.objects.all
+    context = {
+        'showcases': showcases,
+    }
+
+    return render(request, 'showcase/showcase.html', context)

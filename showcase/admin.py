@@ -11,3 +11,6 @@ class ShowcaseAdmin(admin.ModelAdmin):
         'location',
         'entry_fee',
     )
+
+
+admin.site.register(Showcase, ShowcaseAdmin)

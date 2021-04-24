@@ -14,6 +14,10 @@ body {
     width: auto;
 }
 
+.showcase-container{
+    background-color: white;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
