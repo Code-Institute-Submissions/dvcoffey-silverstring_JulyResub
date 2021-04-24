@@ -9,8 +9,8 @@ body {
 }
 
 .product-image{
-    margin: 0, auto;
-    max-height: 350px;
+    padding: 0, auto;
+    max-height: 480px;
     width: auto;
 }
 
@@ -37,6 +37,13 @@ body {
 
 .nav-link{
     color: white;
+    text-align: center;
+}
+
+.category-container{
+    background: url('/media/hero-image.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 33vh;
 }
 
 
