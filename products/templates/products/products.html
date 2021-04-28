@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+    <div class="col-12 col-lg-4 mx-auto my-auto py-1 py-lg-0">
         <form method="GET" action="{% url 'products' %}">
             <div class="input-group w-100">
                 <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
@@ -25,16 +25,7 @@
         </form>
     </div>
 
-    <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link" href="#" id="acoustic-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sort by
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="acoustic-guitars-link">
-                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
-                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
-                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
-            </div>
-        </li>
+    
 
     <div class="container-fluid">
         <div class="row">

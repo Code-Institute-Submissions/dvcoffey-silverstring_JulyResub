@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-image: linear-gradient(to bottom right, rgb(210, 191, 216), rgb(176, 219, 219));
+    background-image: linear-gradient(to bottom right, rgb(131, 115, 43), rgb(99, 53, 39));
     background-size: cover;
     height: calc(100vh - 164px);
 }
@@ -41,9 +41,12 @@ body {
 }
 
 .category-container{
-    background: url('/media/hero-image.png') no-repeat center center fixed;
+    /*background: url('/media/hero-image.png') no-repeat center center fixed;*/
+    background-color: rgb(57, 33, 63);
+    margin-top: 164px;
     background-size: cover;
-    height: 33vh;
+    width: 100vw;
+    
 }
 
 
