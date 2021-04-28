@@ -21,6 +21,12 @@ body {
   }
 }
 
+.btn-light {
+    background: white;
+    color: black;
+}
+
+
 
 .hero-container{
     min-width: 100%;
