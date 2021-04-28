@@ -10,21 +10,77 @@
 {% endblock %}
 
 {% block content %}
-    <div class="col-12 col-lg-4 mx-auto my-auto py-1 py-lg-0">
-        <form method="GET" action="{% url 'products' %}">
-            <div class="input-group w-100">
-                <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
-                <div class="input-group-append">
-                    <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                        <span class="icon">
-                            <i class="fas fa-search"></i>
-                        </span>
-                    </button>
+    <div class="overlay"></div>
+    <div class="container-fluid nav-padding"></div>
+    
+    <div class="card  mx-auto w-75" >
+        <div class="card-body">
+            <h3 class="card-title mx-auto text-center">Search our store</h5>
+            <form action="{% url 'products' %}" method="GET" class="col s12 mx-auto text-center">
+            <div class="row center-align mx-auto">
+                <div class="input-field col s12  mx-auto">
+                    <i class="fas fa-search prefix grey-text darken-4 left"></i>
+                    <input type="text" name="query"  id="query" minlength="2" maxlength="32" class="validate" required>
+                    
                 </div>
             </div>
-        </form>
+        </div>
+    
+
+        <div class="container">
+            <div class="row">
+            
+                <div class="col s12 m6 l3 text-center">
+                    <a class="logo-font font-weight-bold category-link" href="#" id="electric-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Electric Guitars
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="electric-guitars-link">
+                        <a href="{% url 'products' %}?category=electric-guitars" class="dropdown-item">Electric Guitars</a>
+                        <a href="{% url 'products' %}?category=electric-guitar-strings" class="dropdown-item">Electric Guitar Strings</a>
+                        <a href="{% url 'products' %}?category=electric-guitar-accessories" class="dropdown-item">Electric Guitar Accessories</a>
+                    </div>
+                </div>
+
+                <div class="col s12 m6 l3 text-center">
+                    <a class="logo-font font-weight-bold category-link" href="#" id="acoustic-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Acoustic Guitars
+                </a>
+                <div class="dropdown-menu" aria-labelledby="acoustic-guitars-link">
+                    <a href="{% url 'products' %}?category=acoustic-guitars" class="dropdown-item">Acoustic Guitars</a>
+                    <a href="{% url 'products' %}?category=acoustic-guitar-strings" class="dropdown-item">Acoustic Guitar Strings</a>
+                    <a href="{% url 'products' %}?category=acoustic-guitar-accessories" class="dropdown-item">Acoustic Guitar Accessories</a>
+                </div>
+                </div>
+
+                <div class="col s12 m6 l3 text-center">
+                    <a class="logo-font font-weight-bold category-link" href="#" id="bass-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Bass Guitars
+                </a>
+                <div class="dropdown-menu " aria-labelledby="bass-guitars-link">
+                    <a href="{% url 'products' %}?category=bass-guitars" class="dropdown-item">Bass Guitars</a>
+                    <a href="{% url 'products' %}?category=bass-guitar-strings" class="dropdown-item">Bass Guitar Strings</a>
+                    <a href="{% url 'products' %}?category=bass-guitar-accessories" class="dropdown-item">Bass Guitar Accessories</a>
+                </div>
+                </div>
+
+                <div class="col s12 m6 l3 text-center">
+                    <a class="logo-font font-weight-bold category-link" href="#" id="acoustic-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sort by
+                </a>
+                <div class="dropdown-menu border-0" aria-labelledby="acoustic-guitars-link">
+                    <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                    <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                    <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+                </div>
+                </div>
+
+            
+       
+            </div>
+        </div>
     </div>
 
+    
     
 
     <div class="container-fluid">

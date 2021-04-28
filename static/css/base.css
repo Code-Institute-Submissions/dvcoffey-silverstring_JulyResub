@@ -3,10 +3,48 @@ html {
 }
 
 body {
-    background-image: linear-gradient(to bottom right, rgb(131, 115, 43), rgb(99, 53, 39));
+    background: url('/media/hero-image.png') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
 }
+
+
+.nav-padding{
+    min-height: 48px;
+    margin: 0;
+    padding: 0;
+}
+
+
+.hero-container{
+    min-width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#hero-image{
+    min-height: 100vh;
+    object-fit: contain;
+}
+
+.category-link{
+    color: black;
+}
+
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: rgb(103,70,16);
+    background: linear-gradient(0deg, rgba(103,70,16,1) 0%, rgba(120,36,18,1) 100%);
+	z-index: -1;
+}
+
+
+
 
 .product-image{
     padding: 0, auto;
@@ -41,11 +79,12 @@ body {
 }
 
 .category-container{
-    /*background: url('/media/hero-image.png') no-repeat center center fixed;*/
-    background-color: rgb(57, 33, 63);
-    margin-top: 164px;
+    margin-top: 80px;
     background-size: cover;
-    width: 100vw;
+    width: 100%;
+    padding: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
     
 }
 
