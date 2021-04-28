@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 
 from .models import UserProfile
@@ -26,3 +26,6 @@ def profile(request):
     }
 
     return render(request, template, context)
+
+
+
