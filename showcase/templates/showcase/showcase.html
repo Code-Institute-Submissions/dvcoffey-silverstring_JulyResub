@@ -18,24 +18,34 @@
                 <hr class="w-50 mb-1">
             </div>
         </div>
-        <div class="showcase-container">
-                    {% for showcase in showcases %}
-                        
-                                    <p class="mb-0">{{ showcase.name }}</p>
-                        
-                
-                                    <p class="mb-0">{{ showcase.start_date }}</p>
-                   
-                 
-                                    <p class="mb-0">{{ showcase.start_time }}</p>
-                 
-                                    <p class="mb-0">{{ showcase.location }}</p>
-                    
-                       
-                                    <p class="mb-0">{{ showcase.entry_fee }}</p>
-                            
-                    
-                    {% endfor %}
+
+        <table class="table table-light">
+        <thead>
+            <tr>
+            <th scope="col">Showcases</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Location</th>
+            <th scope="col">Entree Fee</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for showcase in showcases %}
+            <tr>
+                <th scope="row"></th>
+                <td>{{ showcase.name }}</td>
+                <td>{{ showcase.start_date }}</td>
+                <td>{{ showcase.start_time }}</td>
+                <td>{{ showcase.location }}</td>
+                <td>{{ showcase.entry_fee }}</td>
+            </tr>
+             {% endfor %}
+            
+        </tbody>
+        </table>
+
+       
         </div>
     </div>
 {% endblock %}
