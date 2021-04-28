@@ -71,7 +71,7 @@
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
-                                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                                        <a href="" class="dropdown-item">Product Management</a>
                                     {% endif %}
                                     <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -107,144 +107,7 @@
                 
             </nav>
         </div>
-        <!--
-        <div id="delivery-banner" class="row text-center">
-            <div class="col shipping-message text-white">
-                <h4 class="logo-font my-1">Free delivery on orders over €{{ free_shipping_threshold }}!</h4>                
-            </div>            
-        </div>
         
-            <nav class="navbar navbar-dark bg-dark navbar-expand-md row no-gutters fixed-top">
-                <a class="navbar-brand col-lg-4" href="{% url 'home' %}">
-                    <h2 class="logo-font my-0">Silverstring</h2>
-                </a>
-                <button class="container-fluid navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                        <span class="navbar-toggler-icon">
-                        </span>
-                </button>
-
-                <div class="collapse navbar-collapse col-lg-4" id="collapsibleNavbar">
-                    <ul class="row no-gutters list-inline navbar-nav">
-                        <li class="nav-item col-lg-4">
-                            <a class="nav-link text-center" href="{% url 'home' %}">
-                                Home
-                            </a>
-                        </li>
-                        <li class="nav-item col-lg-4">
-                            <a class="nav-link text-center" href="{% url 'products' %}">
-                                Shop
-                            </a>
-                        </li>
-                        <li class="nav-item col-lg-4">
-                            <a class="nav-link text-center" href="{% url 'showcase' %}">
-                                Showcase
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                    <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                        <li class="list-inline-item dropdown">
-                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="text-center">
-                                    <div><i class="fas fa-user fa-lg"></i></div>
-                                    <p class="my-0">My Account</p>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                                {% if request.user.is_authenticated %}
-                                    {% if request.user.is_superuser %}
-                                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                                    {% endif %}
-                                    <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                                {% else %}
-                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                                {% endif %}
-                            </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_cart' %}">
-                                <div class="text-center">
-                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                                    <p class="my-0">
-                                        {% if grand_total %}
-                                            ${{ grand_total|floatformat:2 }}
-                                        {% else %}
-                                            $0.00
-                                        {% endif %}
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        
-
-        <div class="container category-container mx-0 px-0 bg-dark row no-gutters">
-             <nav class="navbar navbar-dark bg-dark navbar-expand-md row no-gutters">
-
-                    <div class="col-12 col-lg-3 dropdown">
-                        <a class="logo-font font-weight-bold nav-link" href="#" id="electric-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Electric Guitars
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="electric-guitars-link">
-                            <a href="{% url 'products' %}?category=electric-guitars" class="dropdown-item">Electric Guitars</a>
-                            <a href="{% url 'products' %}?category=electric-guitar-strings" class="dropdown-item">Electric Guitar Strings</a>
-                            <a href="{% url 'products' %}?category=electric-guitar-accessories" class="dropdown-item">Electric Guitar Accessories</a>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-lg-3 dropdown">
-                        <a class="logo-font font-weight-bold nav-link" href="#" id="acoustic-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Acoustic Guitars
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="acoustic-guitars-link">
-                            <a href="{% url 'products' %}?category=acoustic-guitars" class="dropdown-item">Acoustic Guitars</a>
-                            <a href="{% url 'products' %}?category=acoustic-guitar-strings" class="dropdown-item">Acoustic Guitar Strings</a>
-                            <a href="{% url 'products' %}?category=acoustic-guitar-accessories" class="dropdown-item">Acoustic Guitar Accessories</a>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-lg-3 dropdown">
-                        <a class="logo-font font-weight-bold nav-link" href="#" id="bass-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Bass Guitars
-                        </a>
-                        <div class="dropdown-menu " aria-labelledby="bass-guitars-link">
-                            <a href="{% url 'products' %}?category=bass-guitars" class="dropdown-item">Bass Guitars</a>
-                            <a href="{% url 'products' %}?category=bass-guitar-strings" class="dropdown-item">Bass Guitar Strings</a>
-                            <a href="{% url 'products' %}?category=bass-guitar-accessories" class="dropdown-item">Bass Guitar Accessories</a>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-lg-3 dropdown">
-                        <a class="logo-font font-weight-bold nav-link" href="#" id="acoustic-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sort by
-                        </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="acoustic-guitars-link">
-                            <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
-                            <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
-                            <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
-                        </div>
-                    </div>
-                </nav>
-
-              
-            </div>  
-              
-            <!---    
-            <div id="delivery-banner" class="row text-center">
-                <div class="col bg-black text-white">
-                    <h4 class="logo-font my-1">Free delivery on orders over €{{ free_delivery_threshold }}</h4>                
-                </div>            
-            </div>
-        </div>
-            --->
 
         </header>
 

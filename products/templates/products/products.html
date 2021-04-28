@@ -15,23 +15,27 @@
     
     <div class="card  mx-auto w-75" >
         <div class="card-body">
-            <h3 class="card-title mx-auto text-center">Search our store</h5>
-            <form action="{% url 'products' %}" method="GET" class="col s12 mx-auto text-center">
-            <div class="row center-align mx-auto">
-                <div class="input-field col s12  mx-auto">
-                    <i class="fas fa-search prefix grey-text darken-4 left"></i>
-                    <input type="text" name="query"  id="query" minlength="2" maxlength="32" class="validate" required>
-                    
-                </div>
+             <form method="GET" action="{% url 'products' %}">
+                    <div class="input-group w-100">
+                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
+                        <div class="input-group-append">
+                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </div>
+        
     
 
         <div class="container">
             <div class="row">
             
                 <div class="col s12 m6 l3 text-center">
-                    <a class="logo-font font-weight-bold category-link" href="#" id="electric-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="font-weight-bold category-link" href="#" id="electric-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Electric Guitars
                     </a>
                     <div class="dropdown-menu" aria-labelledby="electric-guitars-link">
@@ -42,7 +46,7 @@
                 </div>
 
                 <div class="col s12 m6 l3 text-center">
-                    <a class="logo-font font-weight-bold category-link" href="#" id="acoustic-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class=" font-weight-bold category-link" href="#" id="acoustic-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Acoustic Guitars
                 </a>
                 <div class="dropdown-menu" aria-labelledby="acoustic-guitars-link">
@@ -53,7 +57,7 @@
                 </div>
 
                 <div class="col s12 m6 l3 text-center">
-                    <a class="logo-font font-weight-bold category-link" href="#" id="bass-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class=" font-weight-bold category-link" href="#" id="bass-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Bass Guitars
                 </a>
                 <div class="dropdown-menu " aria-labelledby="bass-guitars-link">
@@ -64,7 +68,7 @@
                 </div>
 
                 <div class="col s12 m6 l3 text-center">
-                    <a class="logo-font font-weight-bold category-link" href="#" id="acoustic-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class=" font-weight-bold category-link" href="#" id="acoustic-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Sort by
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="acoustic-guitars-link">

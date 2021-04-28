@@ -10,9 +10,15 @@ body {
 
 
 .nav-padding{
-    min-height: 48px;
+    min-height: 164px;
     margin: 0;
     padding: 0;
+}
+
+@media (min-width: 1200px) {
+  .nav-padding {
+    min-height: 80px;
+  }
 }
 
 
@@ -30,6 +36,7 @@ body {
 
 .category-link{
     color: black;
+    text-transform: uppercase;
 }
 
 .overlay {
@@ -67,6 +74,7 @@ body {
 
 .logo-font {
     text-transform: uppercase;
+    color: blanchedalmond;
 }
 
 .main-logo-link {
