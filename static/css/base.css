@@ -10,14 +10,14 @@ body {
 
 
 .nav-padding{
-    min-height: 164px;
+    min-height: 300px;
     margin: 0;
     padding: 0;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 990px) {
   .nav-padding {
-    min-height: 80px;
+    min-height: 120px;
   }
 }
 
@@ -127,13 +127,3 @@ body {
     }
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
-@media (max-width: 991px) {
-    .header-container {
-        padding-top: 116px;
-    }
-
-    body {
-        height: calc(100vh - 116px);
-    }
-}
