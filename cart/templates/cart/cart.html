@@ -28,8 +28,7 @@
                                         <th scope="col">Subtotal</th>
                                         <th scope="col">Action</th>
                                     </tr>
-                                </thead>
-
+                                </thead> 
                                 {% for item in cart_items %}
                                     <tr>
                                         <td class="py-3">
@@ -72,7 +71,6 @@
                                                 </div>
                                             </form>
                                             <a class="update-link btn btn-info text-white"><small>Update</small></a>
-                                            
                                         </td>
                                         <td class="py-3">
                                             <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
