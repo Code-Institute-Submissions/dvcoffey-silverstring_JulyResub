@@ -1,3 +1,10 @@
+/*-----Fonts-----*/
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;1,400&display=swap');
+
+/*-----General-----*/
+
 html {
     height: 100%;
 }
@@ -5,9 +12,8 @@ html {
 body {
     background: url('/media/hero-image.png') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
+    height: 100vh;
 }
-
 
 .nav-padding{
     min-height: 300px;
@@ -21,10 +27,73 @@ body {
   }
 }
 
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: rgb(103,70,16);
+    background: linear-gradient(0deg, rgba(103,70,16,1) 0%, rgba(120,36,18,1) 100%);
+	z-index: -1;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/*------Buttons-----*/
+
 .btn-light {
     background: white;
     color: black;
 }
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+/*-----Navbar-----*/
+
+.nav-bg{
+    background-color: rgba(0, 0, 0, 0.753);
+}
+
+.main-logo, .nav-link, .acc-link{
+    background: -webkit-linear-gradient(#eee, rgb(53, 36, 10));
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+}
+
+.main-logo{
+    font-family: 'Dancing Script', cursive;
+    font-size: 56px;
+}
+
+.nav-link, .acc-link{
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: large;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -45,16 +114,7 @@ body {
     text-transform: uppercase;
 }
 
-.overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: rgb(103,70,16);
-    background: linear-gradient(0deg, rgba(103,70,16,1) 0%, rgba(120,36,18,1) 100%);
-	z-index: -1;
-}
+
 
 .product-details-container{
     background-color: blanchedalmond;
@@ -73,14 +133,7 @@ body {
     background-color: white;
 }
 
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
+
 
 .logo-font {
     text-transform: uppercase;
@@ -91,10 +144,7 @@ body {
     width: fit-content;
 }
 
-.nav-link{
-    color: white;
-    text-align: center;
-}
+
 
 .category-container{
     margin-top: 80px;
@@ -107,11 +157,7 @@ body {
 }
 
 
-.btt-link,
-.update-link,
-.remove-item {
-    cursor: pointer;
-}
+
 
 /* -------------------------------- Media Queries */
 

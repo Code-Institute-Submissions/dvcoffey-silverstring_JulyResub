@@ -28,3 +28,12 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    name = models.CharField(max_length=254)
+    Product = models.ForeignKey('Product', null=True, blank=True, on_delete=models.SET_NULL)
+    review = models.TextField()
+
+    def __str__(self):
+        return self.name
