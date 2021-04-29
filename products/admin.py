@@ -26,8 +26,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class ReviewAdmin(admin.ModelAdmin):
     list_display = (
-        'name',
-        'review',
+        'product',
+        'user',
+        'date_added'
     )
 
 
