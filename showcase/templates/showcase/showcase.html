@@ -16,30 +16,26 @@
         </div>
 
         <table class="table table-light">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Location</th>
-                <th scope="col">Entree Fee</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for showcase in showcases %}
-            <tr>
-                <td>{{ showcase.name }}</td>
-                <td>{{ showcase.start_date }}</td>
-                <td>{{ showcase.start_time }}</td>
-                <td>{{ showcase.location }}</td>
-                <td>{{ showcase.entry_fee }}</td>
-            </tr>
-             {% endfor %}
-            
-        </tbody>
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Entree Fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for showcase in showcases %}
+                <tr>
+                    <td>{{ showcase.name }}</td>
+                    <td>{{ showcase.start_date }}</td>
+                    <td>{{ showcase.start_time }}</td>
+                    <td>{{ showcase.location }}</td>
+                    <td>{{ showcase.entry_fee }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
-
-       
-        </div>
     </div>
 {% endblock %}
