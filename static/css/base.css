@@ -134,18 +134,28 @@ body {
     text-align: center;
 }
 
-.product-details-container{
-    background-color: blanchedalmond;
-}
-
-
-
-
 .product-image{
     padding: 0, auto;
     max-height: 480px;
     width: auto;
 }
+
+/*-----product_detail.html-----*/
+
+.product-details-card{
+    padding: 10%;
+}
+
+.review-container-card{
+    background-color: rgba(255, 255, 255, 0.815);
+    margin: 5%;
+    padding: 5%;
+}
+
+
+
+
+
 
 .showcase-container{
     background-color: white;
