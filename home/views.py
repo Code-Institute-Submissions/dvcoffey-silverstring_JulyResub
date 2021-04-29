@@ -12,6 +12,5 @@ def index(request):
 def admin(request):
     if not request.user.is_superuser:
         return redirect(reverse('home'))
-    
-    return render(request, 'home/admin.html')
 
+    return render(request, 'home/admin.html')
