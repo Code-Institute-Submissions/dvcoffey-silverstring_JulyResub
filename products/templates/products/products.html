@@ -1,39 +1,31 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
     <div class="overlay"></div>
     <div class="container-fluid nav-padding"></div>
     
-    <div class="card  mx-auto w-75" >
-        <div class="card-body">
-             <form method="GET" action="{% url 'products' %}">
-                    <div class="input-group w-100">
-                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
-                        <div class="input-group-append">
-                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                                <span class="icon">
-                                    <i class="fas fa-search"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        
-    
+    <div class="card search-card mx-auto my-5 w-75" >
 
-        <div class="container">
+        <!--Search Bar-->
+        <div class="card-body">
+            <form method="GET" action="{% url 'products' %}">
+                <div class="input-group ">
+                    <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
+                    <div class="input-group-append">
+                        <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                            <span class="icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!--Category Dropdown-->
+        <div class="container my-5">
             <div class="row no-gutters">
-            
                 <div class="col-12 col-md-3 text-center">
                     <a class="font-weight-bold category-link" href="#" id="electric-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Electric Guitars
@@ -47,63 +39,59 @@
 
                 <div class="col-12 col-md-3 text-center">
                     <a class=" font-weight-bold category-link" href="#" id="acoustic-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Acoustic Guitars
-                </a>
-                <div class="dropdown-menu" aria-labelledby="acoustic-guitars-link">
-                    <a href="{% url 'products' %}?category=acoustic-guitars" class="dropdown-item">Acoustic Guitars</a>
-                    <a href="{% url 'products' %}?category=acoustic-guitar-strings" class="dropdown-item">Acoustic Guitar Strings</a>
-                    <a href="{% url 'products' %}?category=acoustic-guitar-accessories" class="dropdown-item">Acoustic Guitar Accessories</a>
-                </div>
+                        Acoustic Guitars
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="acoustic-guitars-link">
+                        <a href="{% url 'products' %}?category=acoustic-guitars" class="dropdown-item">Acoustic Guitars</a>
+                        <a href="{% url 'products' %}?category=acoustic-guitar-strings" class="dropdown-item">Acoustic Guitar Strings</a>
+                        <a href="{% url 'products' %}?category=acoustic-guitar-accessories" class="dropdown-item">Acoustic Guitar Accessories</a>
+                    </div>
                 </div>
 
                 <div class="col-12 col-md-3 text-center">
                     <a class=" font-weight-bold category-link" href="#" id="bass-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Bass Guitars
-                </a>
-                <div class="dropdown-menu " aria-labelledby="bass-guitars-link">
-                    <a href="{% url 'products' %}?category=bass-guitars" class="dropdown-item">Bass Guitars</a>
-                    <a href="{% url 'products' %}?category=bass-guitar-strings" class="dropdown-item">Bass Guitar Strings</a>
-                    <a href="{% url 'products' %}?category=bass-guitar-accessories" class="dropdown-item">Bass Guitar Accessories</a>
-                </div>
+                        Bass Guitars
+                    </a>
+                    <div class="dropdown-menu " aria-labelledby="bass-guitars-link">
+                        <a href="{% url 'products' %}?category=bass-guitars" class="dropdown-item">Bass Guitars</a>
+                        <a href="{% url 'products' %}?category=bass-guitar-strings" class="dropdown-item">Bass Guitar Strings</a>
+                        <a href="{% url 'products' %}?category=bass-guitar-accessories" class="dropdown-item">Bass Guitar Accessories</a>
+                    </div>
                 </div>
 
                 <div class="col-12 col-md-3 text-center">
                     <a class=" font-weight-bold category-link" href="#" id="acoustic-guitars-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Sort by
-                </a>
-                <div class="dropdown-menu border-0" aria-labelledby="acoustic-guitars-link">
-                    <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
-                    <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
-                    <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+                        Sort by
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="acoustic-guitars-link">
+                        <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                        <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                        <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+                    </div>
                 </div>
-                </div>
-
-            
-       
             </div>
         </div>
     </div>
 
-    
-    
-
+    <!--Product Grid-->
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center mt-3">
-                <h2 class="logo-font">Products</h2>
+                <h2 class="page-title">Products</h2>
                 <hr class="w-50 mb-1">
             </div>
         </div>
+        
         <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2"></div>
                 <div class="row">
                     {% for product in products %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0">
+                            <div class="card product-card h-100 border-0">
                                 {% if product.image %}
                                 <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    <img class="card-img-top img-fluid product-image mx-auto" src="{{ product.image.url }}" alt="{{ product.name }}">
                                 </a>
                                 {% else %}
                                 <a href="{% url 'product_detail' product.id %}">

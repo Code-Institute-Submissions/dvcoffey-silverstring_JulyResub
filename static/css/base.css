@@ -33,9 +33,19 @@ body {
 	top: 0;
 	left: 0;
 	position: fixed;
-	background: rgb(103,70,16);
-    background: linear-gradient(0deg, rgba(103,70,16,1) 0%, rgba(120,36,18,1) 100%);
+    background: linear-gradient(0deg, rgba(146, 139, 127, 0.829) 0%, rgba(73, 60, 57, 0.856) 100%);
 	z-index: -1;
+}
+
+.search-card{
+    background: linear-gradient(0deg, rgb(204, 200, 192) 0%, rgba(71, 67, 66, 0.733) 100%);
+}
+
+.page-title{
+    font-family: 'Raleway', sans-serif;
+    color: rgb(190, 190, 190);
+    text-shadow: 0px 2px 0px rgb(109, 105, 105) ;
+    text-transform: uppercase;
 }
 
 /* from Bulma */
@@ -63,7 +73,7 @@ body {
 /*-----Navbar-----*/
 
 .nav-bg{
-    background-color: rgba(0, 0, 0, 0.753);
+    background-color: rgba(0, 0, 0, 0.918);
 }
 
 .main-logo, .nav-link, .acc-link, .blerb{
@@ -94,13 +104,6 @@ body {
     font-style: italic;
 }
 
-
-
-
-
-
-
-
 .hero-container{
     min-width: 100%;
     position: relative;
@@ -113,12 +116,23 @@ body {
     object-fit: contain;
 }
 
+/*-----products.html-----*/
+
 .category-link{
-    color: black;
+    color: rgb(247, 246, 246);
     text-transform: uppercase;
+    font-size: large;
+    text-shadow: 0px 2px 0px rgb(0, 0, 0) ;
 }
 
+.category-link:hover{
+    color:black;
+    text-shadow: none;
+}
 
+.product-card{
+    text-align: center;
+}
 
 .product-details-container{
     background-color: blanchedalmond;
