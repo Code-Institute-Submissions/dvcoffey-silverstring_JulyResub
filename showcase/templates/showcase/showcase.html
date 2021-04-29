@@ -10,7 +10,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center mt-3">
-                <h2 class="logo-font">Upcoming Showcases</h2>
+                <h2 class="page-title">Upcoming Showcases</h2>
                 <hr class="w-50 mb-1">
             </div>
         </div>
@@ -18,18 +18,16 @@
         <table class="table table-light">
         <thead>
             <tr>
-            <th scope="col">Showcases</th>
-            <th scope="col">Name</th>
-            <th scope="col">Date</th>
-            <th scope="col">Time</th>
-            <th scope="col">Location</th>
-            <th scope="col">Entree Fee</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Location</th>
+                <th scope="col">Entree Fee</th>
             </tr>
         </thead>
         <tbody>
             {% for showcase in showcases %}
             <tr>
-                <th scope="row"></th>
                 <td>{{ showcase.name }}</td>
                 <td>{{ showcase.start_date }}</td>
                 <td>{{ showcase.start_time }}</td>
