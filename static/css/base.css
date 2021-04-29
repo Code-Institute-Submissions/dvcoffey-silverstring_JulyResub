@@ -66,7 +66,7 @@ body {
     background-color: rgba(0, 0, 0, 0.753);
 }
 
-.main-logo, .nav-link, .acc-link{
+.main-logo, .nav-link, .acc-link, .blerb{
     background: -webkit-linear-gradient(#eee, rgb(53, 36, 10));
     background-size: 100%;
     -webkit-background-clip: text;
@@ -87,8 +87,12 @@ body {
     font-size: large;
 }
 
+/*-----index.html-----*/
 
-
+.blerb{
+    font-family: 'Raleway', sans-serif;
+    font-style: italic;
+}
 
 
 
