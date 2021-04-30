@@ -152,16 +152,9 @@ body {
     padding: 5%;
 }
 
-
-
-
-
-
 .showcase-container{
     background-color: white;
 }
-
-
 
 .logo-font {
     text-transform: uppercase;
@@ -172,8 +165,6 @@ body {
     width: fit-content;
 }
 
-
-
 .category-container{
     margin-top: 80px;
     background-size: cover;
@@ -181,11 +172,7 @@ body {
     padding: 0%;
     margin-left: 0%;
     margin-right: 0%;
-    
 }
-
-
-
 
 /* -------------------------------- Media Queries */
 

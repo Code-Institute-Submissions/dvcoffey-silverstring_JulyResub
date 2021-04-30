@@ -22,7 +22,37 @@ Store Owner | Add a product | Add new items to store | Admin user is able to add
 Store Owner | Edit/update a product | Change product details | Admin user is able to edit products via product/product detail pages
 Store Owner | Delete a product | Remove items not for sale | Admin user is able to delete products via product/product detail pages
 
+## Manual Testing
 
+-The logo and home links are functioning correctly and lead the user to the home page.
+
+-The store link leads the user to the store page and displays the products appropriately 
+
+-The Navbar and Nav padding change state at the appropriate screen sizes
+
+-Users can access the showcase page via the Navbar
+
+-The dropdown account menu items appear for the appropriate users and direct them to the correct pages.
+
+-The cart icon will navigate the user to the cart, If the cart is empty it was display as such and provide a link for the user to return to the store page.
+
+-If the cart has content the users can navigate to the checkout page.
+
+-The user can effectively update and remove items from the cart.
+
+-The checkout form will save data to the user profile if the checkbox is selected.
+
+-The logout and log in pages function appropriately
+
+-The edit/Delete buttons appear only for the admin and not a regular user
+
+-Stripe payments function appropriately
+
+#### The review functionality is not working and has been disabled. 
+##### This is a problem I could not fix, I spent too much time trying to get it to work.
+##### This time was intended for improving the readme, testing, proper code indentation and code comments
+##### The automated email service has not been implemented for the same reason
+ 
 
 ## Deployment
 

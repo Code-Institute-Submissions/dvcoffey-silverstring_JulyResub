@@ -35,6 +35,6 @@ class Review(models.Model):
     name = models.CharField(max_length=254, default='', blank=True)
     product = models.ForeignKey('Product', null=True, blank=True, on_delete=models.SET_NULL)
     content = models.CharField(max_length=254, default='', blank=True)
-    
+
     def __str__(self):
         return self.name
