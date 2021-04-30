@@ -1,70 +1,21 @@
-## User Stories
-
-### The Visitor
-
-#### As a visitor , I want to learn about classic playstation games. I am directed to the website via an ad or social media. 
-
-Visitors are greeted with the homepage and logo to confirm they are in the right place.
-
-#### Now that I am on the website I would like to learn about playstation games.
-
-The homepage will display games to the user in thumbnails sorted by most recently added, most viewed and the ability to browse by genre.
-They also have access to the game directory page which will display a list of all games in the database in a larger card format with more details. 
-
-Clicking on a thumbnail or a game card will redirect the user to the game details page.
-
-The game details page will provide the games recorded information along with a link to search for the game on amazon if the visitor is interested in purchasing the game.
-
-#### As a visitor I only like want to learn about a certain type of game.
-
-If the user is only interested in a certain genre, 'horror' for instance, they can navigate to the bottom of the homepage and select this genre from a series of cards.
-Clicking on a card will take them to the game directory page, with only the game cards of the selected genre displaying.
-
-#### What if I want to search for one specific game?
-
-The game directory page has a search bar on top allowing the visitor to search for games using a typed query.
-This typed query will also take into account the game's developer and publisher.
-
-#### I've applied a search filter, how do I undo it?
-
-Clicking on the home link, or PS Classics logo in the navbar will return the user to the homepage clearing all filters.
-In the searchbar there is also a reset button that will clear all search filters.
-
-#### Okay, I like this website, I would like some extra features.
-
-The navbar provides a link to the registration page, allowing the visitor to sign up and become a registered user.
-
-
-### The Registered User
-
-#### As a registered user, I would like to improve this database by adding to it.
-
-When a registered user is logged in, they will be brought to their profile page. For new users this will be empty until they add to the database.
-
-#### So how do I add a game to the database?
-
-More options will be available to the registered user in the navbar. 
-One of these is "Add Game". Clicking on this will redirect the user to a new page where they can fill out a form and submit their entry to the database.
-
-#### I have added a game, but I made a mistake.
-
-The user can navigate to the game details page of the game they have added. This can be done using the game directory page or the homepage which will show the most recently added games.
-Alternatively they can visit their profile page and locate the game there.
-The game details page will contain an edit button allowing to user to correct the fields they entered in the form previously.
-
-#### I want to remove my entry from the database.
-
-The game details page will also contain a delete button, allowing the user to delete their entry from the database entirely.
-A popup window will appear for confirmation incase the delete button was selected in error.
-
-The edit and delete buttons for games that you have added will not be visible to other users.
-
-
-### The Administrator
-
-#### As an administrator I need control over the database entries to maintain a consistent website.
-
-The administrator can edit or delete any entry to the database by navigating to the game details page.
-The edit and delete options will be available to the administrator for any game.
-
-The administrator also has acces to the genre manager, which will allow them to add, edit or delete genres from the database.
+As a/an| I want to be able to | So that I can | Addressed
+------- | -------- | ------- | ------
+Shopper | View a list of products | Select some to purchase | Shop link displays product listings
+Shopper | View individual product details | See the price/description/rating/| Clicking on product card in product listings displays product details
+Shopper | View the total of my purchases at any time | adjust my purchases accordingly | Clicking on the "shopping cart" icon displays the current total and allows for users to update/remove the quantity of items
+Site User | Register for account | Have an account/view my profile | Registration can be accessed by clicking account icon
+Site User | Login/logout | Access my account | Option to login/logout on clicking "person" icon
+Site User | Have a personalised user profile | View order history/save payment info | Profile page available after login, shows order history/payment info
+Site User | See upcoming events | View the catalogue in person | Showcase page lists upcoming events and information
+Site User | Leave a review | Let other user know of the quality of a specific product | Product details page contains form input to leave a review
+Site User | See product reviews | Learn of other customers experiences with a specific product | Product details page contains list of product reviews
+Shopper | Search for a product | Find a specific product | Search form included in store page, can search by name/description
+Shopper | See what I've searched for | Quickly decide if what I want is there | Search form filters results by search criteria
+Shopper | Select qty of product when purchasing | Ensure I don't select wrong quantity| Qty selector forms included on product details page
+Shopper | View cart | See total cost/all items  |  Clicking "bag" icon, lists products, total cost and subtotals.
+Shopper | Adjust qty of items in my cart | Make changes to the cart before checkout |  update/remove is available in the cart
+Shopper | Enter payment info | Checkout | Payment info can be filled in on checkout page
+Shopper | View an order confirmation after checkout | Verify the order | Order confirmation appears on profile page 
+Store Owner | Add a product | Add new items to store | Admin user is able to add products via Product management
+Store Owner | Edit/update a product | Change product details | Admin user is able to edit products via product/product detail pages
+Store Owner | Delete a product | Remove items not for sale | Admin user is able to delete products via product/product detail pages
