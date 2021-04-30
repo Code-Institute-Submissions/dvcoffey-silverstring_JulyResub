@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.contrib import messages, User
+from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Product, Category, Review
@@ -66,16 +66,15 @@ def product_detail(request, product_id):
         'product': product,
     }
 
-    # Add a review
+    # Add review
+
     if request.method == 'POST' and request.user.is_authenticated:
+        stars = request.POST.get('stars', 3)
         content = request.POST.get('content', '')
-        user = request.user
 
-        review = Review.objects.create(product=product, user=user, content=content)
+        review = Review.objects.create(product=product, user=request.user, stars=stars, content=content)
 
-        return redirect('product_detail', product_id)
-
-    return render(request, 'products/product_detail.html', context)
+        return redirect('product_detail', category_slug=category_slug, slug=slug)
 
 
 @login_required
