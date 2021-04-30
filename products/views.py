@@ -3,8 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Product, Category, Review
-from .forms import ProductForm, ReviewForm
-
+from .forms import ProductForm
 # Create your views here.
 
 
@@ -62,11 +61,9 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product)
-    form = ReviewForm()
 
     context = {
         'product': product,
-        'form': form,
         'reviews': reviews,
     }
 
@@ -142,24 +139,3 @@ def delete_product(request, product_id):
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
 
-
-@login_required
-def add_review(request, product_id):
-    """Add a review"""
-
-    if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        product = Product(pk=product_id)
-        if form.is_valid():
-            review = form.save(commit=False)
-            review.author = request.user
-            review.product = Product(pk=product_id)
-            form.save()
-            messages.success(request, 'Successfully added review!')
-            return redirect(reverse('product_details', args=[product_id]))
-        else:
-            messages.error(request,
-                           ('Failed to add review. '
-                            'Please ensure the form is valid.'))
-
-    return redirect(reverse('product_details', args=[product_id]))
