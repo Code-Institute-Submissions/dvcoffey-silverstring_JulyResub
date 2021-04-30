@@ -31,8 +31,9 @@ class Product(models.Model):
         return self.name
 
 
-class ProductReview(models.Model):
-    product = models.ForeignKey(Product, related_name='reviews', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
+class Review(models.Model):
+    product = models.ForeignKey('Album', null=True, blank=True, on_delete=models.SET_NULL)
+    content = models.TextField(max_length=2000)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_on = models.DateTimeField(auto_now_add=True)
 
-    content = models.TextField(blank=True, null=True)
