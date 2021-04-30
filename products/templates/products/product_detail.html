@@ -110,11 +110,7 @@
         </div>
     </div>
 
-    <h3>All reviews {{ product.review_set.count }}</h3>
-{% for review in product.review_set.all %}
-    {{ review.review }}
-    {{ review.date }}
-{% endfor %}
+
        
 {% endblock %}
 

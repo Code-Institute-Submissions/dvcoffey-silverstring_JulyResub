@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from .models import Product, Category, Review
+from .models import Product, Category, ProductReview
 from .forms import ProductForm
 
 # Create your views here.
@@ -67,21 +67,6 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
-
-@login_required(login_url='products:signin')
-def review(request,pk):
-    if request.method == "POST":
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            review = form.save(commit=False)
-            review.product = Product.objects.get(pk=pk)
-            review.user = request.user
-            review.save()
-            messages.success(request, "Review saved")
-            return redirect('products:detail', pk)
-        else:
-            messages.error(request, 'error in form')
-    return redirect('products:detail', pk)
 
 
 @login_required
