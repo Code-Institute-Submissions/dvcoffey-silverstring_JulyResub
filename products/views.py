@@ -72,7 +72,7 @@ def product_detail(request, product_id):
         content = request.POST.get('content', '')
         user = request.user
 
-        review = Review.objects.create(product=product, user=request.user, stars=stars, content=content)
+        review = Review.objects.create(product=product, user=user, stars=stars, content=content)
 
         return redirect('product_detail', product_id)
 
@@ -96,7 +96,7 @@ def add_product(request):
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
-        
+
     template = 'products/add_product.html'
     context = {
         'form': form,
@@ -142,7 +142,7 @@ def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-        
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
