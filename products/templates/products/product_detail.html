@@ -144,10 +144,10 @@
                 {% for review in product.reviews.all %}
                     <div class="card review-container-card">
                         <p>
-                            <strong>Added by: </strong>{{ review.user }} <br>
-                            <strong>Date: </strong>{{ review.date_added|date:"Y-m-d" }}
+                            <strong>Added by: </strong>{{ reviews.user }} <br>
+                            <strong>Date: </strong>{{ reviews.date_added|date:"Y-m-d" }}
                         </p>
-                        {{ review.content }}
+                        {{ reviews.content }}
                     </div>
                 {% empty %}
                     <div class="card review-container-card">
