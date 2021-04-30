@@ -58,7 +58,7 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show the product details """
+    """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
 
@@ -66,15 +66,22 @@ def product_detail(request, product_id):
         'product': product,
     }
 
-    # Add review
+    return render(request, 'products/product_detail.html', context)
 
-    if request.method == 'POST' and request.user.is_authenticated:
-        stars = request.POST.get('stars', 3)
-        content = request.POST.get('content', '')
-
-        review = Review.objects.create(product=product, user=request.user, stars=stars, content=content)
-
-        return redirect('product_detail', category_slug=category_slug, slug=slug)
+@login_required(login_url='products:signin')
+def review(request,pk):
+    if request.method == "POST":
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.product = Product.objects.get(pk=pk)
+            review.user = request.user
+            review.save()
+            messages.success(request, "Review saved")
+            return redirect('products:detail', pk)
+        else:
+            messages.error(request, 'error in form')
+    return redirect('products:detail', pk)
 
 
 @login_required
