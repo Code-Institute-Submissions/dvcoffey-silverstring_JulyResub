@@ -1,3 +1,5 @@
+## User Stories
+
 As a/an| I want to be able to | So that I can | Addressed
 ------- | -------- | ------- | ------
 Shopper | View a list of products | Select some to purchase | Shop link displays product listings
@@ -19,3 +21,71 @@ Shopper | View an order confirmation after checkout | Verify the order | Order c
 Store Owner | Add a product | Add new items to store | Admin user is able to add products via Product management
 Store Owner | Edit/update a product | Change product details | Admin user is able to edit products via product/product detail pages
 Store Owner | Delete a product | Remove items not for sale | Admin user is able to delete products via product/product detail pages
+
+
+
+## Deployment
+
+### preparation
+-Go to aws.amazon.com to and register an account
+-Create a new bucket to store the media files/css
+-Go to stripe.com to reveal your keys there
+
+This website is deployed on [Heroku](https://www.heroku.com/), following these steps:
+- Install the following packages to your local environment.
+- [gunicorn](https://gunicorn.org/): `gunicorn` 
+- [gninx](https://www.nginx.com/): `gninx` 
+- [psycopg2-binary](https://pypi.org/project/psycopg2-binary/): 
+- [dj-database-url](https://pypi.org/project/dj-database-url/): 
+- type `pip3 freeze > requirements.txt` in the terminal to add the installed packages to the requirements.txt.
+- Create a `Procfile` write `web: gunicorn silverstring.wsgi:application` in the file.
+- `git add` and `git commit` and `git push` all the changes to the Github repositoty of this project.
+- Create a new app in Heroku. Select the nearest region and click **Create app**.
+- In Heroku navigate to  **Resources** , then **Add-ons** and find **Heeroku Postgres**, select **Hobby Dev — Free** and click **Submit Order Form** to add it to your project.
+- Navigate back to the  Heroku Dashboard and click on **Setting** > **Reveal Config Vars** to set the following values:
+
+AWS_ACCESS_KEY_ID:	Your AWS Access Key
+AWS_SECRET_ACCESS_KEY: 	Your AWS Secret Access Key
+DATABASE_URL: 	Your Postgres Database URL
+SECRET_KEY: 	Your Secret Key
+STRIPE_PUBLIC_KEY: 	Your Stripe Public Key
+STRIPE_SECRET_KEY: 	Your Stripe Secret Key
+STRIPE_WH_SECRET: 	Your Stripe WH Key
+USE_AWS: 	True
+
+- Migrate the database models to the Postgres database using the following commands in the terminal: python3 manage.py migrate
+- Create a superuser for the Postgres database using the following command: python3 manage.py createsuperuser
+- Install boto3 and django-storages via the terminal to connect AWS S3 bucket to Django.
+- Freeze to requirements.txt
+- Add the following in settings.py.
+ 
+if 'USE_AWS' in os.environ:
+    # Cache Control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = 'kaur-health'
+    AWS_S3_REGION_NAME = 'eu-west-1'
+    AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3-eu-west-1.amazonaws.com'
+
+    # Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
+    # Roots
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+- In Heroku enable automatic deployment from github
+- Push all changes using git push heroku master.
