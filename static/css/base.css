@@ -79,10 +79,6 @@ body {
 .main-logo, .nav-link, .acc-link, .blerb{
     background: -webkit-linear-gradient(#eee, rgb(53, 36, 10));
     background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-text-fill-color: transparent;
 }
 
 .main-logo{
