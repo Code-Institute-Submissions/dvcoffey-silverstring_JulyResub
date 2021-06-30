@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center mt-3">
+            <hr class="w-50 mb-1">
+            <h2 class="logo-font m-4">Reviews</h2>
+            <hr class="w-50 mb-1">
+        </div>
+    </div>
+
+    {% for r in reviews %}
+    <!-- Bootstrap card. Copied from https://getbootstrap.com/ -->
+    <div class="card text-center m-5">
+        <div class="card-body">
+            <h5 class="card-title">{{ r.name }}</h5>
+            <h6>{{ r.product.display_name }}</h6>
+            <p class="card-text">{{ r.review }}</p>
+            <div class="text-muted"><small>
+                    {{ r.date_posted }}</small>
+            </div>
+        </div>
+    </div>
+
+    {% if request.user.is_superuser %}
+    <!-- Modal Code copied from Bootsrap -->
+    <!-- Button trigger modal -->
+    <p class="text-center">
+        <small class="ml-2">
+            <a type="button" class="text-danger" data-toggle="modal" data-target="#delete-{{ r.id }}">
+                Delete Review
+            </a>
+        </small>
+    </p>
+    <!-- Modal -->
+    <div class="modal fade" id="delete-{{ r.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteFaqModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Delete Review</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Would you really like to delete this Review?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-black" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger" href="{% url 'delete_review' r.id %}">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endfor %}
+
+<!-- Pagination. Copied and adapted from https://www.ordinarycoders.com/blog/article/django-pagination -->
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        {% if reviews.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ reviews.previous_page_number }}">Previous</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        {% endif %}
+        {% for i in reviews.paginator.page_range %}
+        {% if reviews.number == i %}
+        <li class="page-item active" aria-current="page">
+            <span class="page-link">
+                {{ i }}
+                <span class="sr-only">(current)</span>
+            </span>
+        </li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if reviews.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ reviews.next_page_number }}">Next</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<!-- JQuery for modal from https://getbootstrap.com/ -->
+<script type="text/javascript">
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
+</script>
+
+{% endblock %}
