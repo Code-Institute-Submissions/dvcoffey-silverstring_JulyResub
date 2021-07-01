@@ -6,12 +6,16 @@
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
-
-
 {% block content %}
     <div class="overlay"></div>
+
+    <!--Responsive Padding-->
     <div class="nav-padding"></div>
+
+
     <div class="container">
+
+        <!--Page Header-->
         <div class="row">
             <div class="col">
                 <hr>
@@ -19,6 +23,8 @@
                 <hr>
             </div>
         </div>
+
+        <!--Order Summary-->
         <div class="card product-details-card">
             <div class="row">
                 <div class="col-12 col-lg-6 order-lg-last mb-5">
@@ -127,7 +133,6 @@
         </div>
     </div>
 {% endblock %}
-
 
 {% block postloadjs %}
     {{ block.super }}
