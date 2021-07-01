@@ -15,7 +15,7 @@ def review(request):
     page_obj = paginator.get_page(page_number)
 
     context = {
-        'reviews': page_obj,
+        'review': page_obj,
     }
     return render(request, 'review/review.html', context)
 
