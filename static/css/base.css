@@ -33,12 +33,12 @@ body {
 	top: 0;
 	left: 0;
 	position: fixed;
-    background: linear-gradient(0deg, rgba(146, 139, 127, 0.829) 0%, rgba(73, 60, 57, 0.856) 100%);
+    background: linear-gradient(0deg, rgba(68, 57, 39, 0.829) 0%, rgba(73, 60, 57, 0.856) 100%);
 	z-index: -1;
 }
 
 .search-card{
-    background: linear-gradient(0deg, rgb(204, 200, 192) 0%, rgba(71, 67, 66, 0.733) 100%);
+    background: linear-gradient(0deg, rgb(204, 200, 192) 0%, rgba(36, 18, 13, 0.733) 100%);
 }
 
 .page-title{
@@ -73,7 +73,7 @@ body {
 /*-----Navbar-----*/
 
 .nav-bg{
-    background-color: rgba(0, 0, 0, 0.918);
+    background-color: black;
 }
 
 .main-logo, .nav-link, .acc-link, .blerb{
@@ -82,7 +82,7 @@ body {
 }
 
 .main-logo{
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Raleway', sans-serif;
     font-size: 56px;
 }
 
@@ -91,6 +91,16 @@ body {
     text-transform: uppercase;
     font-weight: 400;
     font-size: large;
+}
+
+/*-----Footer-----*/
+
+#footer{
+    background-color: black;
+}
+
+.social-icon{
+    color: white;
 }
 
 /*-----index.html-----*/
