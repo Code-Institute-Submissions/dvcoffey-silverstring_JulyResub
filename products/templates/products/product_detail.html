@@ -109,8 +109,8 @@
             </div>
         </div>
     </div>  
-
-    {% if product.review.all %}
+    
+    {% if product.reviews.all %}
     <div class="row">
         <div class="col-s-12 col-md-6 offset-md-3">
             <div class="accordion mt-4" id="review-accordion">
@@ -127,7 +127,7 @@
 
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#review-accordion">
                         <div class="card-body">
-                            {% for r in product.review.all %}
+                            {% for r in product.reviews.all %}
                             <div class="mb-4">
                                 <div>
                                     <h5>Review by: {{ r.name }}</h5>
