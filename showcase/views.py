@@ -5,6 +5,7 @@ from .models import Showcase
 
 
 def showcase(request):
+    """ View to reuturn upcoming showcases"""
 
     showcases = Showcase.objects.all
     context = {

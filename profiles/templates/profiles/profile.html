@@ -5,17 +5,15 @@
     <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
 <div class="overlay"></div>
+
+<!--Nav Padding-->
+<div class="nav-padding"></div>
+
     <div class="container">
+
+        <!--Page Header-->
         <div class="row">
             <div class="col">
                 <hr>
@@ -23,6 +21,8 @@
                 <hr>
             </div>
         </div>
+
+        <!--Default delivery Info-->
         <div class="row">
             <div class="col-12 col-lg-6">
                 <p class="text-muted">Default Delivery Information</p>
