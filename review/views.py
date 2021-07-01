@@ -9,8 +9,8 @@ from django.core.paginator import Paginator
 
 
 def review(request):
-    reviews = Review.objects.all().order_by('-date_posted')
-    paginator = Paginator(reviews, 3)
+    review = Review.objects.all().order_by('-date_posted')
+    paginator = Paginator(review, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
