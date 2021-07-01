@@ -27,6 +27,7 @@ def add_review(request, product_id):
         form = ReviewForm(request.POST, request.FILES)
         form.instance.user = request.user
         if form.is_valid():
+            print("form is valid")
             form.save()
             messages.success(request, 'Successfully added review!')
             return redirect(reverse('product_detail', args=[product.id]))
