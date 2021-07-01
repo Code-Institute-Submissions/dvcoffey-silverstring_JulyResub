@@ -9,13 +9,13 @@ from django.core.paginator import Paginator
 
 
 def review(request):
-    review = Review.objects.all().order_by('-date_posted')
-    paginator = Paginator(review, 3)
+    reviews = Review.objects.all().order_by('-date_posted')
+    paginator = Paginator(reviews, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     context = {
-        'review': page_obj,
+        'reviews': page_obj,
     }
     return render(request, 'review/review.html', context)
 
@@ -48,7 +48,7 @@ def add_review(request, product_id):
 
 @login_required
 def delete_review(request, review_id):
-    """ Delete a review  """
+    """ Delete a review from the db """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, you are not authorised do that.')
         return redirect(reverse('home'))
