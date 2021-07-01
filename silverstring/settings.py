@@ -27,7 +27,7 @@ DISABLE_COLLECTSTATIC = 0
 SECRET_KEY = os.environ.get('SECRET_KEY', 'none')
 
 
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['silverstring.herokuapp.com', 'localhost']
