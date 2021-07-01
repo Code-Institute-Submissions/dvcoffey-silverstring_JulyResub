@@ -24,9 +24,10 @@ def review(request):
 def add_review(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
+
+        print("POST requested")
         form = ReviewForm(request.POST, request.FILES)
         form.instance.user = request.user
-        print("POST requested")
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully added review!')
