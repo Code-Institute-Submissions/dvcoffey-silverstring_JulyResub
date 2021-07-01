@@ -33,7 +33,7 @@ body {
 	top: 0;
 	left: 0;
 	position: fixed;
-    background: linear-gradient(0deg, rgba(68, 57, 39, 0.829) 0%, rgba(73, 60, 57, 0.856) 100%);
+    background-color: black;
 	z-index: -1;
 }
 
