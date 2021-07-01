@@ -10,6 +10,7 @@ def index(request):
 
 
 def admin(request):
+    """ A view to return the admin page """
     if not request.user.is_superuser:
         return redirect(reverse('home'))
 
