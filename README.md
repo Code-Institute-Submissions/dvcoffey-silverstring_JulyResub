@@ -20,8 +20,6 @@ This website is designed with these users as the focus.
 
 ### Store Owner
 
-The Administrator has full control over the database.
-
 ## User Stories
 
 This website is designed with these users as the focus.
@@ -397,5 +395,7 @@ The Code Institute provided most of the educational resource required to build t
 Stack Overflow contained many helpful threads which were queried during development.
 
 The Slack community and my fellow students at code institute for providing ispiration and assistance.
+
+Tutor support who were incredibly helpful when I had issues with AWS Database configuration and review functionality
 
 This website is built purely for educational purposes.
