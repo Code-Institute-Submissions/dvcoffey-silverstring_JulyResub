@@ -27,7 +27,20 @@
 
                     <!--Cart Items-->
                     {% if cart_items %}
-                        <div class="table-responsive rounded">
+                    <div class="d-block d-md-none">
+                        <div class="row">
+                            <div class="col">
+                                {% include "cart/cart-total.html" %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                {% include "cart/checkout-button.html" %}
+                                <p class="text-muted mb-5">Summary of cart contents</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="table-responsive rounded d-none d-md-block">
                             <table class="table table-sm table-borderless">
                                 <thead class="text-black">
                                     <tr>
@@ -45,9 +58,7 @@
 
                                         <!--Product Details-->
                                         <td class="py-3">
-                                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                            <p class="my-0"><strong>Gauge: </strong>{% if item.product.has_gauges %}{{ item.gauge|upper }}{% else %}N/A{% endif %}</p>
-                                            <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                            {% include "cart/product-info.html %}
                                         </td>
 
                                         <!--Product Price-->
@@ -58,37 +69,7 @@
 
                                         <!--Quantity Select-->
                                         <td class="py-3 w-25">
-                                            <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.item_id %}">
-                                                {% csrf_token %}
-                                                <div class="form-group">
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <button class="decrement-qty btn btn-sm btn-danger rounded-4" 
-                                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                                <span>
-                                                                    <i class="fas fa-minus fa-sm"></i>
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                        <input class="form-control form-control-sm qty_input" type="number"
-                                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                                            data-item_id="{{ item.item_id }}"
-                                                            id="id_qty_{{ item.item_id }}">
-                                                        <div class="input-group-append">
-                                                            <button class="increment-qty btn btn-sm btn-success rounded-4"
-                                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                                <span>
-                                                                    <i class="fas fa-plus fa-sm"></i>
-                                                                </span>
-                                                            </button>
-                                                        </div>
-                                                        {% if item.product.has_gauges %}
-                                                            <input type="hidden" name="string_gauge" value="{{ item.gauge }}">
-                                                        {% endif %}
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <a class="update-link btn btn-info text-white"><small>Update</small></a>
+                                            {% include "cart/quantity-form.html %}
                                         </td>
 
                                         <!--Subtotal Calculate-->
@@ -105,32 +86,14 @@
                                 <!--Cart Total Calculate-->
                                 <tr>
                                     <td colspan="5" class="pt-5 text-right">
-                                        <h6><strong>Cart Total: €{{ total|floatformat:2 }}</strong></h6>
-                                        <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
-                                        <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
-                                        {% if free_delivery_delta > 0 %}
-                                            <p class="mb-1 text-danger">
-                                                You could get free delivery by spending just <strong>€{{ free_delivery_delta }}</strong> more!
-                                            </p>
-                                        {% endif %}
+                                        {% include "cart/checkout-button.html %}
                                     </td>
                                 </tr>
 
                                 <!--Navigation Buttons-->
                                 <tr>
                                     <td colspan="5" class="text-right">
-                                        <a href="{% url 'products' %}" class="btn btn-warning rounded-4 btn-lg">
-                                            <span class="icon">
-                                                <i class="fas fa-chevron-left"></i>
-                                            </span>
-                                            <span class="text-uppercase">Continue Shopping</span>
-                                        </a>
-                                        <a href="{% url 'checkout' %}" class="btn btn-success rounded-4 btn-lg">
-                                            <span class="text-uppercase">Secure Checkout</span>
-                                            <span class="icon">
-                                                <i class="fas fa-lock"></i>
-                                            </span>
-                                        </a>
+                                        {% include "cart/checkout-button.html %}
                                     </td>
                                 </tr>
                             </table>
