@@ -64,10 +64,10 @@ def adjust_cart(request, item_id):
     else:
         if quantity > 0:
             cart[item_id] = quantity
-            messages.success(request, f'Updated {product.name} quantity to {cart[item_id]}')
+            messages.success(request, f'Updated {Product.name} quantity to {cart[item_id]}')
         else:
             cart.pop(item_id)
-            messages.success(request, f'Removed {product.name} from your cart')
+            messages.success(request, f'Removed {Product.name} from your cart')
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
@@ -88,7 +88,7 @@ def remove_from_cart(request, item_id):
                 cart.pop(item_id)
         else:
             cart.pop(item_id)
-            messages.success(request, f'Removed {product.name} from your cart')
+            messages.success(request, f'Removed {Product.name} from your cart')
 
         request.session['cart'] = cart
         return HttpResponse(status=200)
