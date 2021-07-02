@@ -8,18 +8,6 @@ from django import forms
 from django.core.paginator import Paginator
 
 
-def review(request):
-    review = Review.objects.all()
-    paginator = Paginator(review, 3)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-
-    context = {
-        'review': page_obj,
-    }
-    return render(request, 'review/review.html', context)
-
-
 @login_required
 def add_review(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
@@ -46,16 +34,3 @@ def add_review(request, product_id):
         'product': product,
     }
     return render(request, template, context)
-
-
-@login_required
-def delete_review(request, review_id):
-    """ Delete a review from the db """
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, you are not authorised do that.')
-        return redirect(reverse('home'))
-
-    review = get_object_or_404(Review, pk=review_id)
-    review.delete()
-    messages.success(request, 'Review deleted!')
-    return redirect(reverse('review'))
