@@ -4,7 +4,7 @@ from products.models import Product
 
 class Review(models.Model):
     product = models.ForeignKey(
-        Product, related_name='reviews',
+        Product, related_name='review',
         null=True, on_delete=models.SET_NULL)
     name = models.CharField(
         max_length=200)
