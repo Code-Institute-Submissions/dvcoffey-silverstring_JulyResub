@@ -6,7 +6,7 @@ Silverstring is an online ecommerce platform dedicated providing customers with 
 
 ## Testing
 
-Documentation on user stories, testing and deployment can be found in TESTING.md
+Documentation on testing and deployment can be found in TESTING.md
 
 ## UX
 
@@ -261,6 +261,108 @@ The billing information can also be save to the user profile so that they don't 
 
 - [Paint.net](https://www.getpaint.net/)
     For designing the wireframes and editing images used across the site.
+
+## Deployment
+
+-Go to aws.amazon.com to and register an account
+-Create a new bucket to store the media files/css
+-Go to stripe.com to reveal your keys there
+
+This website is deployed on [Heroku](https://www.heroku.com/), following these steps:
+- Install the following packages to your local environment.
+- [gunicorn](https://gunicorn.org/): `gunicorn` 
+- [gninx](https://www.nginx.com/): `gninx` 
+- [psycopg2-binary](https://pypi.org/project/psycopg2-binary/): 
+- [dj-database-url](https://pypi.org/project/dj-database-url/): 
+- type `pip3 freeze > requirements.txt` in the terminal to add the installed packages to the requirements.txt.
+- Create a `Procfile` write `web: gunicorn silverstring.wsgi:application` in the file.
+- `git add` and `git commit` and `git push` all the changes to the Github repositoty of this project.
+- Create a new app in Heroku. Select the nearest region and click **Create app**.
+- In Heroku navigate to  **Resources** , then **Add-ons** and find **Heeroku Postgres**, select **Hobby Dev — Free** and click **Submit Order Form** to add it to your project.
+- Navigate back to the  Heroku Dashboard and click on **Setting** > **Reveal Config Vars** to set the following values:
+
+AWS_ACCESS_KEY_ID:	Your AWS Access Key
+AWS_SECRET_ACCESS_KEY: 	Your AWS Secret Access Key
+DATABASE_URL: 	Your Postgres Database URL
+SECRET_KEY: 	Your Secret Key
+STRIPE_PUBLIC_KEY: 	Your Stripe Public Key
+STRIPE_SECRET_KEY: 	Your Stripe Secret Key
+STRIPE_WH_SECRET: 	Your Stripe WH Key
+USE_AWS: 	True
+
+- Migrate the database models to the Postgres database using the following commands in the terminal: python3 manage.py migrate
+- Create a superuser for the Postgres database using the following command: python3 manage.py createsuperuser
+- Install boto3 and django-storages via the terminal to connect AWS S3 bucket to Django.
+- Freeze to requirements.txt
+- Add the following in settings.py.
+ 
+if 'USE_AWS' in os.environ:
+    # Cache Control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = 'kaur-health'
+    AWS_S3_REGION_NAME = 'eu-west-1'
+    AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3-eu-west-1.amazonaws.com'
+
+    # Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
+    # Roots
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+- In Heroku enable automatic deployment from github
+- Push all changes using git push heroku master.
+
+## Making a Local Clone:
+To make a local clone of the Silverstring website, enter ```git clone https://github.com/dvcoffey/silverstring.git``` into the
+terminal. 
+
+Alternatively, you can follow these steps, which are detailed on the official 
+[GitHub Documentation](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository)
+
+Create an .env.py file in the root directory of the project, and add it to the .gitignore file. 
+The following code needs to be added to the .env.py file:
+```
+import os  
+os.environ["DEVELOPMENT"] = "True"    
+os.environ["SECRET_KEY"] = "<Your Secret Key>"
+os.environ["STRIPE_PUBLIC_KEY"] = "<Your Stripe Public Key>"    
+os.environ["STRIPE_SECRET_KEY"] = "<Your Stripe Secret Key>"    
+os.environ["STRIPE_WH_SECRET"] = "<Your Stripe WH Secret Key>"   
+```
+
+Install the required packages: 
+pip install -r requirements.txt
+
+Make migrations and then migrate in order to create a database, by running the following commands:
+python3 manage.py makemigrations
+python3 manage.py migrate.
+
+Load the fixtures from the 'product_types.json' file and then from the 'products.json' file  contained in the 'fixtures' folder into the database. 
+python3 manage.py loaddata <file name> 
+
+
+Create a superuser with the following command: 
+python3 manage.py runserver 
+
+Enter your credentials.
+
+Run the app by entering the following command:
+python3 manage.py runserver
 
 
 ## Sources and acknowledgements
