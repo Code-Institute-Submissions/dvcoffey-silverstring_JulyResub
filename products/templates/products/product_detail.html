@@ -153,13 +153,6 @@
         <a class="btn btn-info" href="{% url 'add_review' product.id %}">Add Review</a>
     </div>
 
-    {% if product.review.all %}
-        {% for r in product.review.all %}
-            <h5>Review by: {{ r.name }}</h5>
-            {{ r.review }}
-        {% endfor %}
-    {% endif %}
-
 
     <!---Responsive padding--->
     <div class="nav-padding"></div>
