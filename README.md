@@ -126,7 +126,11 @@ The Product Details page
 
 The site ended up looking quite different to this as development progressed.
 
-## Features
+## Security Features
+Stripe is used to handle payment proccessing.
+Allauth is used to manage accounts.
+Secret Keys are stored in heroku config variables and so they cannot be accessed from the site.
+
 
 #### Responsiveness
 
