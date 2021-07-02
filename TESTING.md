@@ -1,6 +1,6 @@
+## Testing
 
-
-## Manual Testing
+### Links
 
 -The logo and home links are functioning correctly and lead the user to the home page.
 
@@ -16,17 +16,58 @@
 
 -If the cart has content the users can navigate to the checkout page.
 
--The user can effectively update and remove items from the cart.
+### Cart
+
+-The user can effectively add, update and remove items from the cart.
+
+-The continue shopping and secure checkout buttons are functioning correctly 
+
+### Accounts
 
 -The checkout form will save data to the user profile if the checkbox is selected.
 
--The logout and log in pages function appropriately
+-The logout, log in, register and reset password pages function appropriately
 
 -The edit/Delete buttons appear only for the admin and not a regular user
 
 -Stripe payments function appropriately
 
--The checkout and cart screens sis not scale well on mobile devices which rendered payment impossible, this has been refactored and now all elements of the screen are accessible.
+-Allauth templates have been Refactored and appropriate fields can be reached.
+
+-Fields and links are functioning correctly
+
+
+### Emails
+
+-Emails are effectively being sent when:
+-A new account is registered to confirm email, link in email is functioning
+-a password is reset, link in email is functioning
+-A product is ordered, a confirmation email is received
+
+### Payments
+
+-Payments can be seen as processed correctly using stripe webhooks
+
+### Scalability
+
+-The checkout and cart screens did not scale well on mobile devices which rendered payment impossible, this has been refactored and now all elements of the screen are accessible.
 
 -The showcase page has a slight overflow on small '320px" devices, it can be scrolled easily however.
 
+-The navbar collapses correctly on mobile devices
+
+-I would like the cart to be more apparent on mobile devices as it is collapsed into the navbar, this  is an unforseen design flaw
+
+### Reviews
+
+- Reviews can be added and will appear on the product page.
+(This was my greatest issue during this project and took up a lot of time which I would like to have spent making the overall UX nicer.
+It was a migration issue which I had to contact tutor support to help with).
+
+- A product can be deleted by the admin even if it has reviews attatched
+
+### Admin 
+
+-The product management( add, edit and delete ) will not appear for standard users, only the admin.
+
+-The add, edit and delete functions are working appropriately.

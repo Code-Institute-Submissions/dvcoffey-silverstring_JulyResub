@@ -4,6 +4,8 @@ The live website can be found [here](https://silverstring.herokuapp.com/).
 
 Silverstring is an online ecommerce platform dedicated providing customers with guitars and guitar accessories. 
 
+For test purposes, purchases can be made using card details "4242 4242 4242 424242"
+
 ## Testing
 
 Documentation on testing and deployment can be found in TESTING.md
@@ -130,6 +132,8 @@ The site ended up looking quite different to this as development progressed.
 Stripe is used to handle payment proccessing.
 Allauth is used to manage accounts.
 Secret Keys are stored in heroku config variables and so they cannot be accessed from the site.
+The product management functionality can only be accessed by the administrator
+Password reset will require email confirmation.
 
 
 #### Responsiveness
@@ -367,6 +371,17 @@ Enter your credentials.
 
 Run the app by entering the following command:
 python3 manage.py runserver
+
+## Future Plans
+
+I would like the cart to be more visible on mobile view. 
+It is collapsed into the mobile navbar, which is an unforseen design flaw.
+It would require a complete redesign of the navbar
+
+Overall I would like to spend more time on the UX, and make the website look nicer.
+For instance, the product images on the product details view could use a bit more styling, they are a bit cramped.
+
+The Footer is a really just a social links container. but I would like it to contain more such as contact info.
 
 
 ## Sources and acknowledgements
