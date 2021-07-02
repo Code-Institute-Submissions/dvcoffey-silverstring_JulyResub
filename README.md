@@ -116,7 +116,15 @@ https://drawsql.app/
 
 ## Surface
 
+The following wireframes were created using paint.net
 
+The Products page, featuring the navbar, link layout and product sorting.
+<img src="static/wireframes/wireframe1.png">
+
+The Product Details page
+<img src="static/wireframes/wireframe2.png">
+
+The site ended up looking quite different to this as development progressed.
 
 ## Features
 
